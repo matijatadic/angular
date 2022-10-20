@@ -1,0 +1,22 @@
+<label>Character name</label>
+<!-- <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateCharacterName($event)"> -->
+<input
+    type="text"
+    class="form-control"
+    [(ngModel)]="characterName">
+<!-- <p>{{ characterName }}</p> -->
+<button
+    class="btn btn-info"
+    [disabled]="!allowNewCharacter"
+    (click)="onCreateCharacter()">Add character</button>
+<!-- <p>{{ characterCreationStatus }}</p> -->
+<p *ngIf="characterCreated; else noCharacter">Character was created, character name is {{ characterName }}</p>
+<ng-template #noCharacter>
+    <p>
+        No character was created!
+    </p>
+</ng-template>
+<app-learning *ngFor="let character of characters"></app-learning>
